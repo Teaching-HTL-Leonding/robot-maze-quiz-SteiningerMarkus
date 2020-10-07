@@ -51,6 +51,27 @@ namespace Maze.Tests
         public static readonly (int y, int x) NoSolutionStart = (0, 0);
         public static readonly (int y, int x) NoSolutionEnd = (0, 2);
 
+        /* +-----------------+
+           | . X X X     X X |
+           | .       X       |
+           | . X X       X   |
+           | . X X X X X X X |
+           | . . . . . . X . |
+           |   X X X X . . . |
+           |     X     X   X |
+           |         X     X |
+           +-----------------+ */
+        public const string MultipleDeadEnds = @" XXX  XX    X    XX   X  XXXXXXX      X  XXXX     X  X X    X  X";
+        public static readonly (int y, int x) MultipleDeadEndsStart = (0, 0);
+        public static readonly (int y, int x) MultipleDeadEndsEnd = (4, 7);
+        public static readonly IEnumerable<Direction> MultipleDeadEndsSolution = new[] {
+            Direction.Down, Direction.Down, Direction.Down, Direction.Down,
+            Direction.Right, Direction.Right, Direction.Right, Direction.Right, Direction.Right,
+            Direction.Down,
+            Direction.Right, Direction.Right,
+            Direction.Up
+        };
+
         public static BitArray MazeFromString(string source) => new BitArray(source.Select(c => c != ' ').ToArray());
     }
 }

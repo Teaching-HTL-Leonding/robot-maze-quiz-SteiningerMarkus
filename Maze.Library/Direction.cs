@@ -1,10 +1,8 @@
-﻿namespace Maze.Library
-{
-    public enum Direction
-    {
-        Left,
-        Right,
+﻿namespace Maze.Library {
+    public enum Direction {
         Up,
-        Down
+        Right,
+        Down,
+        Left,
     }
 }

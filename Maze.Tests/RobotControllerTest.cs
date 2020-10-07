@@ -39,6 +39,12 @@ namespace Maze.Tests
             Assert.True(robot.hcfCalled);
         }
 
+        [Fact]
+        public void MultipleDeadEnds()
+        {
+            MoveAndCheckPosition(Mazes.MultipleDeadEnds, Mazes.MultipleDeadEndsStart, Mazes.MultipleDeadEndsEnd);
+        }
+
         private void MoveAndCheckPosition(string mazeString, (int y, int x) start, (int y, int x) end)
         {
             var robot = MoveToExit(mazeString, start, end);
